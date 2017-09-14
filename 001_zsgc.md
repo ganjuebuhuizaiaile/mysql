@@ -49,15 +49,15 @@
     
     
 1.对表的增删改查<br>
-    insert into 表名(列名1,列名2,列名3...) values(值1,值2,值3...)
-    insert into 表名 values(值1,值2,值3……)
-    update 表名 set 字段名=值, 字段名=值, 字段名=值……
-    update 表名 set字段名=值, 字段名=值, 字段名=值…… where 条件
-    delete from 表名 where 条件
-    select [distinct] *| 列名1，列名2 from 表名 [where条件]
-        eg: select * from product as[可以省略] p(使用别名)
-            select pname as[可以省略] p from product(使用别名)
-            select distinct(price) from product(去掉重复值)
+    insert into 表名(列名1,列名2,列名3...) values(值1,值2,值3...)<br>
+    insert into 表名 values(值1,值2,值3……)<br>
+    update 表名 set 字段名=值, 字段名=值, 字段名=值……<br>
+    update 表名 set字段名=值, 字段名=值, 字段名=值…… where 条件<br>
+    delete from 表名 where 条件<br>
+    select [distinct] *| 列名1，列名2 from 表名 [where条件]<br>
+        eg: select * from product as[可以省略] p(使用别名)<br>
+            select pname as[可以省略] p from product(使用别名)<br>
+            select distinct(price) from product(去掉重复值)<br>
             select pname,price+10 from product;(所有的商品的价格+10进行显示)
             
 2.delete与truncate的区别<br>
