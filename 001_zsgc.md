@@ -48,6 +48,23 @@
             select pname as[可以省略] p from product(使用别名)
             select distinct(price) from product(去掉重复值)
             select pname,price+10 from product;(所有的商品的价格+10进行显示)
+            select pname from product where pname>xxx or pname<xxx;
+            select pname from product where pname like %哈%; _ *  .  
+            select pname from product where pname in (a, 6, 9)  
 2.delete与truncate的区别
     delete删除的时候是一条一条的删除记录，它配合事务，可以将删除的数据找回。
     truncate删除，它是将整个表摧毁，然后再创建一张一模一样的表。它删除的数据无法找回。
+3.排序
+    select pname from product order by pname asc
+    select pname from product order by pname desc
+4.聚合函数
+    select sum(price) from product
+    select avg(price) from product
+    select count(*) from product
+5.查询总结
+    select  一般在的后面的内容都是要查询的字段
+    from  要查询到表
+    where
+    group by 
+    having  分组后带有条件只能使用having
+    order by 它必须放到最后面
