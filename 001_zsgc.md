@@ -42,7 +42,8 @@
     rename table 表名 to 新表名
     
 7.修改表的字符集<br>
-    alter table 表名 character set 编码
+    alter table 表名 character set 编码<br>
+    alter database 表名 character set 编码
     
 8.查看表的编码等信息<br>
     show create table 表名
@@ -75,11 +76,51 @@
     select sum(price) from product<br>
     select avg(price) from product<br>
     select count(*) from product
+    MAX/MIX
     
 5.查询总结
     select  一般在的后面的内容都是要查询的字段<br>
     from  要查询到表<br>
-    where<br>
+    where<br>-------常用between...and  in(xx,xxx,xx) like '%_*'  is null----and or not
     group by <br>
     having  分组后带有条件只能使用having<br>
     order by 它必须放到最后面
+    
+    
+1.多表设计
+   一对一   主键任意存
+   一对多   多的一方存
+   多对多   新建一张关联表保存各自的主键
+2.数据类型
+   varchar 可变长度字符串（根据存的东西的长短，只占用实际的）---节省空间
+   char    固定长度的字符串（无论存的东西是否占满，都是占用那么多空间）----更省时间
+   blob    大二进制数据（视频，图片等，最大4G）
+   text    大文本数据（最大4G）
+   tinyint 1
+   smallint 2
+   int 4
+   bigint 8
+   float
+   double
+   bit   一位0101010（布尔）
+   data 日期
+   time  时间
+   datetime 日期时间
+   timestamp  当某一列市timestamp的时候，这行记录新增或修改时，自动更新最近修改时间
+3.约束
+    主键 primary key
+    主键自动增长 auto_increment
+    唯一约束 unique
+    非空 not null
+    外键约束
+4.mysql的字符跟日期类型的数据必须用单引号包起来
+5.注意区分mysqlserver的编码，与自己库表编码的区别的编码
+6.例子
+    ~统计一个班级语文、英语、数学的成绩总和
+        select sum(ifnull(chinese,0)+ifnull(english,0)+ifnull(math,0)) from exam;
+    在执行计算时,只要有null参与计算,整个计算的结构都是null
+    此时可以用ifnull函数进行处理
+    ~统计一个班级语文成绩平均分
+        select sum(chinese)/count(*) 语文平均分 from exam;
+7.group by 列名
+    写了groupby哪一列，那么那一列值相同就会合在一起，（立体重叠）其他列的值显示的就是第一条数据
